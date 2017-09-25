@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 $("#saveButton").click(function () {
   var thisId = $("#articleLink").attr("article-id");
   console.log(thisId)
@@ -10,3 +12,4 @@ $("#saveButton").click(function () {
       console.log(data);
     })
   })
+});
