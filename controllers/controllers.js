@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 var Note = require('../models/Note.js');
 var Article = require('../models/Article.js');
 
-mongoose.connect("mongodb://localhost/readaboutit");
+mongoose.connect("mongodb://heroku_b5hxws22:ldg1tpq8hfd3p7gso9khea7r8a@ds149124.mlab.com:49124/heroku_b5hxws22");
 var db = mongoose.connection;
 
 db.on("error", function(error) {
@@ -46,7 +46,6 @@ router.put("/articles/:id", function (req, res) {
       }
       else {
         res.save(doc);
-        console.log(doc);
       }
     });
 });
