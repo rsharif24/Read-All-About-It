@@ -38,14 +38,15 @@ router.get("/saved", function(req, res) {
     });
   });
 
-router.post("/saved/:id", function (req, res) {
-    Article.findOneAndUpdate({"_id": "'" + req.params.id + "'" }, {$set:{"saved": true}})
+router.put("/articles/:id", function (req, res) {
+    Article.findOneAndUpdate({_id:`"${req.params.id}"` }, {$set:{saved: true}})
     .exec(function(err, doc) {
       if (err) {
         console.log(err);
       }
       else {
-        res.send(doc);
+        res.save(doc);
+        console.log(doc);
       }
     });
 });
@@ -75,7 +76,7 @@ router.get("/scrape", function(req, res) {
   
       });
     });
-    res.send("Scrape Complete");
+    res.redirect("/");
   });
   
   router.get("/articles", function(req, res) {
